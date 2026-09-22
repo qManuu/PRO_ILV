@@ -1,0 +1,72 @@
+[
+  {
+    "schuh_id": 1001,
+    "name": "Air Runner X1",
+    "preis": 89.99,
+    "farben": ["Schwarz", "Weiß"],
+    "release_jahr": 2021
+  },
+  {
+    "schuh_id": 1002,
+    "name": "Street Classic Low",
+    "preis": 64.50,
+    "farben": ["Weiß", "Grau", "Blau"],
+    "release_jahr": 2019
+  },
+  {
+    "schuh_id": 1003,
+    "name": "Trail Grip Pro",
+    "preis": 119.00,
+    "farben": ["Grün", "Schwarz"],
+    "release_jahr": 2022
+  },
+  {
+    "schuh_id": 1004,
+    "name": "Urban Slip-On",
+    "preis": 54.99,
+    "farben": ["Beige"],
+    "release_jahr": 2020
+  },
+  {
+    "schuh_id": 1005,
+    "name": "SprintTech Elite",
+    "preis": 139.99,
+    "farben": ["Rot", "Schwarz", "Weiß"],
+    "release_jahr": 2023
+  },
+  {
+    "schuh_id": 1006,
+    "name": "Retro Court 90",
+    "preis": 74.90,
+    "farben": ["Weiß", "Rot"],
+    "release_jahr": 1990
+  },
+  {
+    "schuh_id": 1007,
+    "name": "Comfort Walker",
+    "preis": 59.95,
+    "farben": ["Braun", "Schwarz"],
+    "release_jahr": 2018
+  },
+  {
+    "schuh_id": 1008,
+    "name": "Alpine Boot Winter",
+    "preis": 159.00,
+    "farben": ["Schwarz", "Grau"],
+    "release_jahr": 2022
+  },
+  {
+    "schuh_id": 1009,
+    "name": "Canvas Summer Low",
+    "preis": 39.99,
+    "farben": ["Gelb", "Weiß", "Türkis"],
+    "release_jahr": 2024
+  },
+  {
+    "schuh_id": 1010,
+    "name": "Pro Basketball Mid",
+    "preis": 149.99,
+    "farben": ["Schwarz", "Rot", "Silber"],
+    "release_jahr": 2023
+  }
+]
