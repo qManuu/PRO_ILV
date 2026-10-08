@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Schuhshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#app">Zum Inhalt springen</a>
+
+  <header class="kopfzeile">
+    <div class="wrap kopfzeile-inhalt">
+      <a class="logo" href="#/">Schuhshop</a>
+      <nav class="hauptnav" aria-label="Hauptnavigation">
+        <a href="#/shop" data-nav="shop">Shop</a>
+        <a href="#/finder" data-nav="finder">Schuh-Finder</a>
+        <a href="#/warenkorb" data-nav="warenkorb" class="warenkorb-link">
+          Warenkorb <span id="warenkorb-anzahl" class="zaehler">0</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="app" class="wrap" tabindex="-1">
+    <p class="hinweis">Shop wird geladen …</p>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <footer class="fusszeile">
+    <div class="wrap fusszeile-inhalt">
+      <div>
+        <p class="logo logo-klein">Schuhshop</p>
+        <p>Versandkostenfrei ab 50 €, sonst 4,90 €.</p>
+      </div>
+      <nav aria-label="Fußzeile">
+        <a href="#/shop">Alle Schuhe</a>
+        <a href="#/finder">Schuh-Finder</a>
+        <a href="#/warenkorb">Warenkorb</a>
+      </nav>
+      <p class="projekt">Projekt der Gruppe J für PRO ILV. Demo-Shop ohne echte Zahlung.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

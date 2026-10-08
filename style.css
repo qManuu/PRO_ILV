@@ -1,0 +1,684 @@
+/* ===================== Farben & Schriften ===================== */
+:root {
+  --papier: #F3F4F6;
+  --karte: #FFFFFF;
+  --buehne: #E4E7EC;
+  --tinte: #16181D;
+  --grau: #5C6370;
+  --linie: #D3D7DE;
+  --kobalt: #2A43D1;
+  --kobalt-hell: #E6E9FB;
+  --auf-kobalt: #FFFFFF;
+  --fehler: #B42318;
+  --erfolg: #1E7A46;
+
+  --schrift: "Archivo", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
+
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papier: #111318; --karte: #1A1D24; --buehne: #232731; --tinte: #EDEFF3;
+    --grau: #A0A7B4; --linie: #2E333E; --kobalt: #8395FF; --kobalt-hell: #232A52;
+    --auf-kobalt: #0D0F14; --fehler: #FF8A80; --erfolg: #6FD39A;
+  }
+}
+
+:root[data-theme="dark"] {
+  --papier: #111318; --karte: #1A1D24; --buehne: #232731; --tinte: #EDEFF3;
+  --grau: #A0A7B4; --linie: #2E333E; --kobalt: #8395FF; --kobalt-hell: #232A52;
+  --auf-kobalt: #0D0F14; --fehler: #FF8A80; --erfolg: #6FD39A;
+}
+
+*, *::before, *::after { box-sizing: inherit; }
+
+html { height: 100%; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); }
+
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--papier);
+  color: var(--tinte);
+  font-family: var(--schrift);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+main { flex: 1; width: 100%; }
+main:focus { outline: none; }
+
+.wrap { max-width: 74rem; margin: 0 auto; padding: 0 1.25rem; }
+
+a { color: var(--kobalt); }
+
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid var(--kobalt);
+  outline-offset: 2px;
+}
+
+.skip-link { position: absolute; left: -999px; top: 0; }
+.skip-link:focus { left: 1rem; top: 1rem; z-index: 100; background: var(--karte); padding: 0.5rem 1rem; }
+
+.breit { font-stretch: 125%; font-variation-settings: "wdth" 125; }
+
+/* ===================== Kopfzeile ===================== */
+.kopfzeile {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--papier);
+  border-bottom: 1px solid var(--linie);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+
+.kopfzeile-inhalt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 4rem;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  font-size: 1.3rem;
+  color: var(--tinte);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.hauptnav { display: flex; align-items: center; gap: 1.5rem; }
+
+.hauptnav a {
+  color: var(--grau);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.35rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.hauptnav a:hover { color: var(--tinte); }
+.hauptnav a[aria-current="page"] { color: var(--tinte); border-bottom-color: var(--tinte); }
+
+.warenkorb-link { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+.zaehler {
+  display: inline-grid;
+  place-items: center;
+  min-width: 1.4rem;
+  height: 1.4rem;
+  padding: 0 0.35rem;
+  border-radius: 999px;
+  background: var(--buehne);
+  color: var(--tinte);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.zaehler.voll { background: var(--kobalt); color: var(--auf-kobalt); }
+
+/* ===================== Allgemeine Bausteine ===================== */
+h1, h2, h3 { line-height: 1.15; }
+
+.seitentitel {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.02em;
+  margin: 2.5rem 0 0.5rem;
+}
+
+.unterzeile { color: var(--grau); margin: 0 0 2rem; font-size: 1.1rem; max-width: 40rem; }
+
+.abschnitt { padding: 3rem 0; }
+.abschnitt + .abschnitt { border-top: 1px solid var(--linie); }
+
+.abschnitt-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.abschnitt-kopf h2 {
+  font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.mehr-link { font-weight: 600; }
+
+.knopf {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font: inherit;
+  font-weight: 700;
+  color: var(--auf-kobalt);
+  background: var(--kobalt);
+  border: 2px solid var(--kobalt);
+  border-radius: 6px;
+  padding: 0.75rem 1.4rem;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.knopf:hover { filter: brightness(1.1); }
+.knopf:disabled { opacity: 0.55; cursor: not-allowed; filter: none; }
+
+.knopf.zweit { background: transparent; color: var(--tinte); border-color: var(--tinte); }
+.knopf.zweit:hover { background: var(--tinte); color: var(--papier); filter: none; }
+
+.knopf.gross { padding: 1rem 1.75rem; font-size: 1.05rem; }
+
+.textknopf {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: var(--grau);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.textknopf:hover { color: var(--tinte); }
+
+select, input[type="text"], input[type="email"], input[type="search"] {
+  font: inherit;
+  color: var(--tinte);
+  background: var(--karte);
+  border: 1.5px solid var(--linie);
+  border-radius: 6px;
+  padding: 0.6rem 0.7rem;
+  width: 100%;
+}
+
+input[type="range"] { accent-color: var(--kobalt); width: 100%; }
+
+.farbpunkt {
+  display: inline-block;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+  flex: none;
+}
+
+.meldung {
+  border: 1.5px solid var(--linie);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  background: var(--karte);
+}
+.meldung.fehler { border-color: var(--fehler); color: var(--fehler); }
+.meldung code { background: var(--buehne); color: var(--tinte); padding: 0.1em 0.4em; border-radius: 4px; }
+
+.feldfehler { color: var(--fehler); font-size: 0.9rem; margin: 0.4rem 0 0; }
+.feldfehler:empty { display: none; }
+
+.hinweis { color: var(--grau); }
+
+.schuh-bild svg { display: block; width: 100%; height: auto; }
+
+/* ===================== Produktkarten ===================== */
+.raster { display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 1.25rem; }
+
+.produkt-karte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  overflow: hidden;
+  color: inherit;
+  text-decoration: none;
+}
+
+.produkt-karte:hover { border-color: var(--tinte); }
+.produkt-karte:hover h3 { text-decoration: underline; }
+
+.produkt-karte .schuh-bild { background: var(--buehne); padding: 1.5rem 1rem 1rem; }
+
+.karte-text { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: 0.35rem; flex: 1; }
+.produkt-karte h3 { margin: 0; font-size: 1.15rem; }
+
+.farbreihe { display: flex; gap: 0.3rem; align-items: center; }
+.farbreihe .farbpunkt { width: 0.85rem; height: 0.85rem; }
+.farbreihe-text { color: var(--grau); font-size: 0.85rem; margin-left: 0.3rem; }
+
+.preis { font-weight: 800; font-size: 1.3rem; margin: auto 0 0; padding-top: 0.4rem; font-variant-numeric: tabular-nums; }
+
+.etikett {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--tinte);
+  color: var(--papier);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+}
+
+/* ===================== Startseite ===================== */
+.held {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+  padding: 3.5rem 0 3rem;
+}
+
+.held h1 {
+  font-size: clamp(2.6rem, 7vw, 5.25rem);
+  line-height: 0.98;
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.025em;
+  margin: 0 0 1.25rem;
+}
+
+.held p { font-size: 1.2rem; color: var(--grau); margin: 0 0 2rem; max-width: 30rem; }
+
+.held-aktionen { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.held-buehne {
+  display: block;
+  background: var(--buehne);
+  border-radius: 14px;
+  padding: 2.5rem 1.75rem 1.5rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.held-buehne .schuh-bild { transform: rotate(-6deg); }
+
+.held-buehne-text { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-top: 1.5rem; }
+.held-buehne-text strong { font-size: 1.15rem; }
+.held-buehne-text span { color: var(--grau); }
+.held-buehne:hover strong { text-decoration: underline; }
+
+.finder-band {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  background: var(--kobalt);
+  color: var(--auf-kobalt);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  margin: 1rem 0;
+}
+
+.finder-band h2 { margin: 0 0 0.4rem; font-size: clamp(1.4rem, 3vw, 1.9rem); font-weight: 800; font-stretch: 125%; font-variation-settings: "wdth" 125; }
+.finder-band p { margin: 0; max-width: 36rem; opacity: 0.9; }
+.finder-band .knopf { background: var(--auf-kobalt); color: var(--kobalt); border-color: var(--auf-kobalt); }
+
+/* ===================== Shop / Katalog ===================== */
+.shop-layout { display: grid; grid-template-columns: 15.5rem 1fr; gap: 2rem; align-items: start; padding-bottom: 4rem; }
+
+.filter {
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.filter fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+
+.filter legend, .filter-titel {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  padding: 0;
+}
+
+.filter-farben { display: grid; grid-template-columns: 1fr 1fr; gap: 0.35rem 0.5rem; }
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+.check input { width: 1.05rem; height: 1.05rem; accent-color: var(--kobalt); margin: 0; }
+
+.preis-wert { display: flex; justify-content: space-between; color: var(--grau); font-size: 0.9rem; margin-top: 0.3rem; }
+.preis-wert strong { color: var(--tinte); }
+
+.shop-leiste {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+
+.treffer { color: var(--grau); margin: 0; }
+
+.sortierung { display: flex; align-items: center; gap: 0.6rem; color: var(--grau); }
+.sortierung select { width: auto; }
+
+.leer {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  background: var(--karte);
+  border: 1px dashed var(--linie);
+  border-radius: 10px;
+}
+.leer p { margin: 0 0 1rem; color: var(--grau); }
+
+/* ===================== Produktseite ===================== */
+.brotkrumen { margin: 1.5rem 0 0; font-size: 0.9rem; color: var(--grau); }
+.brotkrumen a { color: var(--grau); }
+
+.produkt {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  padding: 1.5rem 0 3rem;
+}
+
+.produkt-buehne { background: var(--buehne); border-radius: 14px; padding: 4rem 2.5rem 3rem; position: relative; }
+.produkt-buehne .etikett { top: 1rem; left: 1rem; }
+
+.produkt h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  font-variation-settings: "wdth" 125;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.35rem;
+}
+
+.produkt-meta { color: var(--grau); margin: 0 0 1rem; }
+.produkt .preis { font-size: 2rem; margin: 0 0 0.25rem; padding: 0; }
+.versand-info { color: var(--grau); font-size: 0.9rem; margin: 0 0 2rem; }
+
+.auswahl { border: 0; padding: 0; margin: 0 0 1.75rem; min-width: 0; }
+.auswahl legend { font-weight: 700; margin-bottom: 0.65rem; padding: 0; }
+.auswahl legend span { font-weight: 400; color: var(--grau); }
+
+.farbwahl { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+.farbwahl button {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 2px solid var(--linie);
+  background: var(--karte);
+  padding: 4px;
+  cursor: pointer;
+}
+.farbwahl button .farbpunkt { width: 100%; height: 100%; }
+.farbwahl button[aria-pressed="true"] { border-color: var(--tinte); border-width: 3px; padding: 3px; }
+
+.groessen { display: grid; grid-template-columns: repeat(auto-fill, minmax(3.4rem, 1fr)); gap: 0.5rem; }
+
+.groessen button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.65rem 0;
+  border: 1.5px solid var(--linie);
+  border-radius: 6px;
+  background: var(--karte);
+  color: var(--tinte);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.groessen button:hover { border-color: var(--tinte); }
+.groessen button[aria-pressed="true"] { background: var(--tinte); color: var(--papier); border-color: var(--tinte); }
+
+.kauf-zeile { display: flex; gap: 0.75rem; align-items: stretch; flex-wrap: wrap; }
+.kauf-zeile .knopf { flex: 1; min-width: 12rem; }
+
+.mengenwahl {
+  display: inline-flex;
+  align-items: center;
+  border: 1.5px solid var(--linie);
+  border-radius: 6px;
+  background: var(--karte);
+}
+.mengenwahl button {
+  font: inherit;
+  font-size: 1.2rem;
+  width: 2.5rem;
+  height: 100%;
+  min-height: 2.6rem;
+  border: 0;
+  background: none;
+  color: var(--tinte);
+  cursor: pointer;
+}
+.mengenwahl button:disabled { color: var(--linie); cursor: not-allowed; }
+.mengenwahl output { min-width: 2rem; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.produkt-beschreibung { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--linie); color: var(--grau); }
+.produkt-beschreibung dl { display: grid; grid-template-columns: auto 1fr; gap: 0.35rem 1.5rem; margin: 1rem 0 0; }
+.produkt-beschreibung dt { color: var(--grau); }
+.produkt-beschreibung dd { margin: 0; color: var(--tinte); }
+
+/* ===================== Schuh-Finder ===================== */
+.finder-form {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 0.8fr auto;
+  gap: 1.5rem;
+  align-items: end;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.feld { margin: 0; padding: 0; border: 0; min-width: 0; }
+.feld > label, .feld > legend { display: block; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.6rem; padding: 0; }
+
+.farb-auswahl { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.farb-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem 0.35rem 0.4rem;
+  border: 1.5px solid var(--linie);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  user-select: none;
+}
+.farb-chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.farb-chip:has(input:checked) { border-color: var(--kobalt); background: var(--kobalt-hell); font-weight: 600; }
+.farb-chip:has(input:focus-visible) { outline: 3px solid var(--kobalt); outline-offset: 2px; }
+
+.budget-zeile { display: flex; align-items: center; gap: 0.75rem; }
+.budget-zeile output { font-weight: 700; min-width: 5.5rem; text-align: right; font-variant-numeric: tabular-nums; }
+
+.ergebnis { margin: 2rem 0 4rem; }
+.ergebnis:empty { display: none; }
+.ergebnis h2 { font-size: 1.5rem; margin: 0 0 0.25rem; }
+.ergebnis-info { color: var(--grau); margin: 0 0 1.25rem; }
+
+.vorschlaege { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--linie); }
+
+.vorschlag {
+  display: grid;
+  grid-template-columns: 2.5rem 7rem 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--linie);
+}
+
+.platz {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--tinte);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+.vorschlag:first-child .platz { background: var(--tinte); color: var(--papier); }
+
+.vorschlag .schuh-bild { background: var(--buehne); border-radius: 6px; padding: 0.35rem; }
+.vorschlag h3 { margin: 0; font-size: 1.15rem; }
+.vorschlag h3 a { color: inherit; }
+.vorschlag-details { margin: 0.15rem 0 0.5rem; color: var(--grau); font-size: 0.9rem; }
+.vorschlag .preis { margin: 0; padding: 0; font-size: 1.25rem; }
+
+.punkte { display: flex; align-items: center; gap: 0.6rem; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+.punkte-balken { flex: 1; max-width: 14rem; height: 0.45rem; background: var(--buehne); border-radius: 999px; overflow: hidden; }
+.punkte-balken span { display: block; height: 100%; background: var(--kobalt); border-radius: 999px; }
+
+.erklaerung { color: var(--grau); font-size: 0.9rem; margin: 1rem 0 0; max-width: 40rem; }
+
+/* ===================== Warenkorb & Kasse ===================== */
+.korb-layout { display: grid; grid-template-columns: 1fr 21rem; gap: 2.5rem; align-items: start; padding-bottom: 4rem; }
+
+.korb-liste { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--linie); }
+
+.korb-position {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr auto;
+  gap: 1.25rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--linie);
+}
+
+.korb-position .schuh-bild { background: var(--buehne); border-radius: 8px; padding: 0.5rem; }
+.korb-position h3 { margin: 0 0 0.2rem; font-size: 1.1rem; }
+.korb-position h3 a { color: inherit; }
+.korb-details { color: var(--grau); margin: 0 0 0.75rem; font-size: 0.95rem; }
+.korb-aktionen { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.korb-position .preis { margin: 0; padding: 0; font-size: 1.15rem; text-align: right; }
+
+.zusammenfassung {
+  position: sticky;
+  top: 5.5rem;
+  background: var(--karte);
+  border: 1px solid var(--linie);
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+.zusammenfassung h2 { margin: 0 0 1rem; font-size: 1.25rem; }
+.zusammenfassung dl { display: grid; grid-template-columns: 1fr auto; gap: 0.5rem 1rem; margin: 0 0 1.25rem; font-variant-numeric: tabular-nums; }
+.zusammenfassung dd { margin: 0; text-align: right; }
+.zusammenfassung .gesamt { font-weight: 800; font-size: 1.2rem; padding-top: 0.75rem; border-top: 1px solid var(--linie); }
+.zusammenfassung .knopf { width: 100%; }
+.versand-hinweis { color: var(--grau); font-size: 0.9rem; margin: 0 0 1rem; }
+
+.kasse-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+.kasse-form .voll { grid-column: 1 / -1; }
+.kasse-form label { display: block; font-weight: 600; margin-bottom: 0.35rem; }
+.kasse-form input[aria-invalid="true"] { border-color: var(--fehler); }
+.kasse-form .knopf { justify-self: start; }
+.demo-hinweis { color: var(--grau); font-size: 0.9rem; margin: 0; }
+
+.kasse-posten { list-style: none; padding: 0; margin: 0 0 1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.95rem; }
+.kasse-posten li { display: flex; justify-content: space-between; gap: 1rem; }
+.kasse-posten span:first-child { color: var(--grau); }
+
+.bestaetigung { max-width: 40rem; padding: 3rem 0 4rem; }
+.bestaetigung .haken {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--erfolg);
+  color: var(--papier);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+.bestaetigung h1 { margin-top: 0; }
+.bestellnummer { font-size: 1.15rem; }
+
+/* ===================== Toast ===================== */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  transform: translate(-50%, 1rem);
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  max-width: calc(100% - 2rem);
+  background: var(--tinte);
+  color: var(--papier);
+  padding: 0.85rem 1.1rem;
+  border-radius: 8px;
+  z-index: 50;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.toast.sichtbar { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.toast a { color: var(--papier); font-weight: 700; white-space: nowrap; }
+
+@media (prefers-reduced-motion: reduce) {
+  .toast { transition: none; }
+}
+
+/* ===================== Fußzeile ===================== */
+.fusszeile { border-top: 1px solid var(--linie); padding: 2rem 0; color: var(--grau); font-size: 0.95rem; margin-top: 2rem; }
+.fusszeile-inhalt { display: flex; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+.fusszeile p { margin: 0 0 0.35rem; }
+.fusszeile nav { display: flex; flex-direction: column; gap: 0.35rem; }
+.fusszeile nav a { color: var(--grau); }
+.logo-klein { font-size: 1.1rem; color: var(--tinte); }
+.projekt { flex-basis: 100%; font-size: 0.85rem; }
+
+/* ===================== Responsiv ===================== */
+@media (max-width: 900px) {
+  .held { grid-template-columns: 1fr; padding-top: 2rem; }
+  .shop-layout { grid-template-columns: 1fr; }
+  .filter { position: static; display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .filter .filter-farben-feld { grid-column: 1 / -1; }
+  .filter-farben { grid-template-columns: repeat(auto-fill, minmax(6.5rem, 1fr)); }
+  .produkt { grid-template-columns: 1fr; gap: 2rem; }
+  .korb-layout { grid-template-columns: 1fr; }
+  .zusammenfassung { position: static; }
+  .finder-form { grid-template-columns: 1fr 1fr; }
+  .finder-form .farb-feld, .finder-form .knopf { grid-column: 1 / -1; }
+}
+
+@media (max-width: 600px) {
+  .hauptnav { gap: 1rem; font-size: 0.95rem; }
+  .kopfzeile-inhalt { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+  .finder-band { grid-template-columns: 1fr; padding: 1.5rem; }
+  .filter { grid-template-columns: 1fr; }
+  .finder-form { grid-template-columns: 1fr; padding: 1.1rem; }
+  .vorschlag { grid-template-columns: 2.5rem 1fr auto; gap: 0.9rem; }
+  .vorschlag .schuh-bild { display: none; }
+  .korb-position { grid-template-columns: 5rem 1fr; }
+  .korb-position .preis { grid-column: 2; text-align: left; }
+  .kasse-form { grid-template-columns: 1fr; }
+  .produkt-buehne { padding: 3rem 1.25rem 2rem; }
+}

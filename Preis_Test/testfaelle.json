@@ -1,0 +1,32 @@
+[
+  {
+    "aufgabe": 1,
+    "beschreibung": "Erwachsener mit 30 Jahren zahlt 15 €",
+    "alter": 30,
+    "erwartet": 15
+  },
+  {
+    "aufgabe": 1,
+    "beschreibung": "Kind mit 10 Jahren zahlt 9 €",
+    "alter": 10,
+    "erwartet": 9
+  },
+  {
+    "aufgabe": 2,
+    "beschreibung": "Genau 18 Jahre zahlt den vollen Preis von 15 €",
+    "alter": 18,
+    "erwartet": 15
+  },
+  {
+    "aufgabe": 2,
+    "beschreibung": "Baby mit 0 Jahren zahlt 9 €",
+    "alter": 0,
+    "erwartet": 9
+  },
+  {
+    "aufgabe": 2,
+    "beschreibung": "Negatives Alter (-5) ist ungültig und wirft einen Fehler",
+    "alter": -5,
+    "erwartet": "Fehler"
+  }
+]
