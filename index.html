@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Schuhshop</title>
+  <title>Schuhwerk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
@@ -12,40 +12,96 @@
 <body>
   <a class="skip-link" href="#app">Zum Inhalt springen</a>
 
+  <div class="infoleiste">
+    <div class="wrap infoleiste-inhalt">
+      <span>Versandkostenfrei ab 50 €</span>
+      <span>Bis zu 10 % Treuerabatt für Mitglieder</span>
+      <span>Neue Modelle schon jetzt vorbestellen</span>
+    </div>
+  </div>
+
   <header class="kopfzeile">
-    <div class="wrap kopfzeile-inhalt">
-      <a class="logo" href="#/">Schuhshop</a>
-      <nav class="hauptnav" aria-label="Hauptnavigation">
-        <a href="#/shop" data-nav="shop">Shop</a>
-        <a href="#/finder" data-nav="finder">Schuh-Finder</a>
-        <a href="#/warenkorb" data-nav="warenkorb" class="warenkorb-link">
-          Warenkorb <span id="warenkorb-anzahl" class="zaehler">0</span>
+    <div class="wrap kopf-oben">
+      <a class="logo" href="#/">Schuhwerk</a>
+
+      <form class="kopf-suche" id="kopf-suche" role="search">
+        <label class="sr-only" for="kopf-suche-feld">Schuhe suchen</label>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7" /><path d="m20 20-4-4" /></svg>
+        <input id="kopf-suche-feld" type="search" placeholder="Modell oder Kategorie suchen" autocomplete="off">
+      </form>
+
+      <nav class="kopf-aktionen" aria-label="Konto und Warenkorb">
+        <a href="#/inhaber" class="kopf-link" id="dashboard-link" data-nav="inhaber" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2" /></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="#/login" class="kopf-link" id="konto-link" data-nav="konto">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6" /></svg>
+          <span id="konto-text">Anmelden</span>
+        </a>
+        <a href="#/warenkorb" class="kopf-link" data-nav="warenkorb">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 8h14l-1.2 12H6.2L5 8Z" /><path d="M9 8V6a3 3 0 0 1 6 0v2" /></svg>
+          <span>Warenkorb</span>
+          <span id="warenkorb-anzahl" class="zaehler">0</span>
         </a>
       </nav>
     </div>
+
+    <nav class="kategorienav" aria-label="Kategorien">
+      <div class="wrap kategorienav-inhalt">
+        <a href="#/shop?sort=neu" data-nav="shop-alle">Alle Schuhe</a>
+        <a href="#/shop?kategorie=Sneaker" data-nav="kat-Sneaker">Sneaker</a>
+        <a href="#/shop?kategorie=Laufschuh" data-nav="kat-Laufschuh">Laufschuhe</a>
+        <a href="#/shop?kategorie=Basketball" data-nav="kat-Basketball">Basketball</a>
+        <a href="#/shop?kategorie=Boot" data-nav="kat-Boot">Boots</a>
+        <a href="#/shop?kategorie=Freizeit" data-nav="kat-Freizeit">Freizeit</a>
+        <a href="#/shop?angebote=1" data-nav="angebote" class="nav-angebote">Angebote</a>
+        <a href="#/shop?verfuegbarkeit=vorbestellbar" data-nav="demnaechst">Demnächst</a>
+        <a href="#/finder" data-nav="finder">Schuh-Finder</a>
+      </div>
+    </nav>
   </header>
 
-  <main id="app" class="wrap" tabindex="-1">
-    <p class="hinweis">Shop wird geladen …</p>
+  <main id="app" tabindex="-1">
+    <div class="wrap"><p class="hinweis lade">Shop wird geladen …</p></div>
   </main>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
+  <dialog id="dialog" class="dialog" aria-labelledby="dialog-titel"></dialog>
+
   <footer class="fusszeile">
-    <div class="wrap fusszeile-inhalt">
-      <div>
-        <p class="logo logo-klein">Schuhshop</p>
-        <p>Versandkostenfrei ab 50 €, sonst 4,90 €.</p>
+    <div class="wrap fuss-spalten">
+      <div class="fuss-marke">
+        <p class="logo">Schuhwerk</p>
+        <p>Sneaker, Laufschuhe, Boots und mehr. Neue Modelle kannst du schon vor dem Erscheinen vorbestellen.</p>
       </div>
-      <nav aria-label="Fußzeile">
-        <a href="#/shop">Alle Schuhe</a>
+      <nav aria-label="Shop">
+        <p class="fuss-titel">Shop</p>
+        <a href="#/shop?sort=neu">Alle Schuhe</a>
+        <a href="#/shop?angebote=1">Angebote</a>
+        <a href="#/shop?verfuegbarkeit=vorbestellbar">Demnächst</a>
         <a href="#/finder">Schuh-Finder</a>
-        <a href="#/warenkorb">Warenkorb</a>
       </nav>
-      <p class="projekt">Projekt der Gruppe J für PRO ILV. Demo-Shop ohne echte Zahlung.</p>
+      <nav aria-label="Service">
+        <p class="fuss-titel">Service</p>
+        <a href="#/konto">Mein Konto</a>
+        <a href="#/warenkorb">Warenkorb</a>
+        <a href="#/login">Anmelden oder registrieren</a>
+      </nav>
+      <div>
+        <p class="fuss-titel">Gut zu wissen</p>
+        <p>Versandkostenfrei ab 50 €, sonst 4,90 €.</p>
+        <p>Ab 3 gekauften oder vorbestellten Paaren 5 %, ab 6 Paaren 10 % Treuerabatt.</p>
+      </div>
+    </div>
+    <div class="wrap fuss-unten">
+      <span>Schuhwerk, Projekt der Gruppe J für PRO ILV</span>
+      <span>Demo-Shop ohne echte Zahlung</span>
     </div>
   </footer>
 
+  <script src="admin.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

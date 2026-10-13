@@ -3,70 +3,367 @@
     "schuh_id": 1001,
     "name": "Air Runner X1",
     "preis": 129.99,
-    "farben": ["Schwarz", "Weiß"],
-    "release_jahr": 2021
+    "farben": [
+      "Schwarz",
+      "Weiß"
+    ],
+    "release_jahr": 2021,
+    "release_datum": "2021-03-12",
+    "kategorie": "Laufschuh",
+    "bestand": 34,
+    "sollbestand": 50,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1002,
     "name": "Street Classic Low",
-    "preis": 64.50,
-    "farben": ["Weiß", "Grau", "Blau"],
-    "release_jahr": 2019
+    "preis": 64.5,
+    "farben": [
+      "Weiß",
+      "Grau",
+      "Blau"
+    ],
+    "release_jahr": 2019,
+    "release_datum": "2019-05-03",
+    "kategorie": "Sneaker",
+    "bestand": 41,
+    "sollbestand": 60,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1003,
     "name": "Trail Grip Pro",
-    "preis": 119.00,
-    "farben": ["Grün", "Schwarz"],
-    "release_jahr": 2022
+    "preis": 119,
+    "farben": [
+      "Grün",
+      "Schwarz"
+    ],
+    "release_jahr": 2022,
+    "release_datum": "2022-04-22",
+    "kategorie": "Laufschuh",
+    "bestand": 22,
+    "sollbestand": 40,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1004,
     "name": "Urban Slip-On",
     "preis": 54.99,
-    "farben": ["Beige"],
-    "release_jahr": 2020
+    "farben": [
+      "Beige"
+    ],
+    "release_jahr": 2020,
+    "release_datum": "2020-06-15",
+    "kategorie": "Freizeit",
+    "bestand": 0,
+    "sollbestand": 40,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1005,
     "name": "SprintTech Elite",
     "preis": 139.99,
-    "farben": ["Rot", "Schwarz", "Weiß"],
-    "release_jahr": 2023
+    "farben": [
+      "Rot",
+      "Schwarz",
+      "Weiß"
+    ],
+    "release_jahr": 2023,
+    "release_datum": "2023-02-17",
+    "kategorie": "Laufschuh",
+    "bestand": 18,
+    "sollbestand": 40,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1006,
     "name": "Retro Court 90",
-    "preis": 74.90,
-    "farben": ["Weiß", "Rot"],
-    "release_jahr": 1990
+    "preis": 74.9,
+    "farben": [
+      "Weiß",
+      "Rot"
+    ],
+    "release_jahr": 1990,
+    "release_datum": "1990-09-01",
+    "kategorie": "Sneaker",
+    "bestand": 3,
+    "sollbestand": 40,
+    "rabatt_prozent": 20
   },
   {
     "schuh_id": 1007,
     "name": "Comfort Walker",
     "preis": 59.95,
-    "farben": ["Braun", "Schwarz"],
-    "release_jahr": 2018
+    "farben": [
+      "Braun",
+      "Schwarz"
+    ],
+    "release_jahr": 2018,
+    "release_datum": "2018-10-05",
+    "kategorie": "Freizeit",
+    "bestand": 27,
+    "sollbestand": 50,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1008,
     "name": "Alpine Boot Winter",
-    "preis": 159.00,
-    "farben": ["Schwarz", "Grau"],
-    "release_jahr": 2022
+    "preis": 159,
+    "farben": [
+      "Schwarz",
+      "Grau"
+    ],
+    "release_jahr": 2022,
+    "release_datum": "2022-10-14",
+    "kategorie": "Boot",
+    "bestand": 5,
+    "sollbestand": 30,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1009,
     "name": "Canvas Summer Low",
     "preis": 39.99,
-    "farben": ["Gelb", "Weiß", "Türkis"],
-    "release_jahr": 2024
+    "farben": [
+      "Gelb",
+      "Weiß",
+      "Türkis"
+    ],
+    "release_jahr": 2024,
+    "release_datum": "2024-04-26",
+    "kategorie": "Sneaker",
+    "bestand": 48,
+    "sollbestand": 60,
+    "rabatt_prozent": 0
   },
   {
     "schuh_id": 1010,
     "name": "Pro Basketball Mid",
     "preis": 149.99,
-    "farben": ["Schwarz", "Rot", "Silber"],
-    "release_jahr": 2023
+    "farben": [
+      "Schwarz",
+      "Rot",
+      "Silber"
+    ],
+    "release_jahr": 2023,
+    "release_datum": "2023-11-10",
+    "kategorie": "Basketball",
+    "bestand": 15,
+    "sollbestand": 35,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1011,
+    "name": "Cloud Stride 2",
+    "preis": 134.9,
+    "farben": [
+      "Weiß",
+      "Türkis"
+    ],
+    "release_jahr": 2025,
+    "release_datum": "2025-03-14",
+    "kategorie": "Laufschuh",
+    "bestand": 30,
+    "sollbestand": 45,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1012,
+    "name": "Metro Knit",
+    "preis": 89,
+    "farben": [
+      "Grau",
+      "Schwarz"
+    ],
+    "release_jahr": 2025,
+    "release_datum": "2025-06-06",
+    "kategorie": "Sneaker",
+    "bestand": 38,
+    "sollbestand": 50,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1013,
+    "name": "Court Legend High",
+    "preis": 119.95,
+    "farben": [
+      "Weiß",
+      "Blau"
+    ],
+    "release_jahr": 2024,
+    "release_datum": "2024-09-20",
+    "kategorie": "Basketball",
+    "bestand": 20,
+    "sollbestand": 35,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1014,
+    "name": "Forest Hiker GTX",
+    "preis": 169,
+    "farben": [
+      "Braun",
+      "Grün"
+    ],
+    "release_jahr": 2024,
+    "release_datum": "2024-10-11",
+    "kategorie": "Boot",
+    "bestand": 12,
+    "sollbestand": 30,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1015,
+    "name": "Daily Trainer",
+    "preis": 79.99,
+    "farben": [
+      "Blau",
+      "Weiß"
+    ],
+    "release_jahr": 2025,
+    "release_datum": "2025-01-24",
+    "kategorie": "Laufschuh",
+    "bestand": 44,
+    "sollbestand": 60,
+    "rabatt_prozent": 15
+  },
+  {
+    "schuh_id": 1016,
+    "name": "Harbor Loafer",
+    "preis": 69.9,
+    "farben": [
+      "Blau",
+      "Beige"
+    ],
+    "release_jahr": 2023,
+    "release_datum": "2023-05-19",
+    "kategorie": "Freizeit",
+    "bestand": 16,
+    "sollbestand": 30,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1017,
+    "name": "Vintage Runner 78",
+    "preis": 94.5,
+    "farben": [
+      "Grau",
+      "Rot",
+      "Weiß"
+    ],
+    "release_jahr": 2025,
+    "release_datum": "2025-09-05",
+    "kategorie": "Sneaker",
+    "bestand": 25,
+    "sollbestand": 40,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1018,
+    "name": "Chelsea Boot Classic",
+    "preis": 139,
+    "farben": [
+      "Schwarz",
+      "Braun"
+    ],
+    "release_jahr": 2021,
+    "release_datum": "2021-11-05",
+    "kategorie": "Boot",
+    "bestand": 9,
+    "sollbestand": 30,
+    "rabatt_prozent": 10
+  },
+  {
+    "schuh_id": 1019,
+    "name": "Skate Low Pro",
+    "preis": 72,
+    "farben": [
+      "Schwarz",
+      "Weiß",
+      "Rot"
+    ],
+    "release_jahr": 2026,
+    "release_datum": "2026-02-13",
+    "kategorie": "Sneaker",
+    "bestand": 33,
+    "sollbestand": 45,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1020,
+    "name": "Velocity Carbon",
+    "preis": 219,
+    "farben": [
+      "Gelb",
+      "Schwarz"
+    ],
+    "release_jahr": 2026,
+    "release_datum": "2026-05-29",
+    "kategorie": "Laufschuh",
+    "bestand": 14,
+    "sollbestand": 25,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1021,
+    "name": "Rebound Mid",
+    "preis": 129,
+    "farben": [
+      "Weiß",
+      "Grün",
+      "Schwarz"
+    ],
+    "release_jahr": 2026,
+    "release_datum": "2026-08-21",
+    "kategorie": "Basketball",
+    "bestand": 21,
+    "sollbestand": 30,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1022,
+    "name": "Summit Peak",
+    "preis": 189,
+    "farben": [
+      "Rot",
+      "Grau",
+      "Schwarz"
+    ],
+    "release_jahr": 2027,
+    "release_datum": "2027-02-12",
+    "kategorie": "Boot",
+    "bestand": 0,
+    "sollbestand": 40,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1023,
+    "name": "Air Runner X2",
+    "preis": 144.99,
+    "farben": [
+      "Silber",
+      "Blau"
+    ],
+    "release_jahr": 2027,
+    "release_datum": "2027-03-19",
+    "kategorie": "Laufschuh",
+    "bestand": 0,
+    "sollbestand": 50,
+    "rabatt_prozent": 0
+  },
+  {
+    "schuh_id": 1024,
+    "name": "Canvas Winter High",
+    "preis": 59.99,
+    "farben": [
+      "Weiß",
+      "Beige"
+    ],
+    "release_jahr": 2027,
+    "release_datum": "2027-01-22",
+    "kategorie": "Sneaker",
+    "bestand": 0,
+    "sollbestand": 50,
+    "rabatt_prozent": 0
   }
 ]
